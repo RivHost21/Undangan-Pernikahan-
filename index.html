@@ -11,20 +11,41 @@
 
 <style>
 :root{--gold:#d4af37;}
-body,html{margin:0;padding:0;font-family:'Poppins',sans-serif;color:#fff;overflow-x:hidden;}
+body,html{margin:0;padding:0;font-family:'Poppins',sans-serif;color:#fff;scroll-behavior:smooth;}
 body{background:url('bg.jpg') center/cover fixed no-repeat;}
 
+/* NAVIGATION */
+nav{
+  position:fixed;
+  top:0;left:0;width:100%;
+  display:flex;justify-content:center;
+  background:rgba(0,0,0,0.65);
+  z-index:999;
+  padding:15px 0;
+  border-bottom:1px solid var(--gold);
+}
+nav a{
+  margin:0 15px;
+  padding:10px 20px;
+  text-decoration:none;
+  color:var(--gold);
+  font-weight:600;
+  font-size:18px;
+  border-radius:8px;
+  transition:0.3s;
+}
+nav a:hover{background:var(--gold);color:#000;box-shadow:0 0 10px var(--gold);}
+
 /* COVER */
-.overlay{min-height:100vh;backdrop-filter: blur(8px);background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.85));}
 #cover{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:30px 20px;}
-#cover h1{letter-spacing:3px;color:var(--gold);font-size:14px;margin:5px 0;}
+#cover h1{letter-spacing:3px;color:var(--gold);font-size:16px;margin:5px 0;}
 #cover p{opacity:0.9;margin:2px 0;}
-.nama{font-family:'Playfair Display',serif;font-size:36px;margin:15px 0;text-shadow:0 0 3px var(--gold),0 0 6px var(--gold);position:relative;line-height:1.3;text-align:center;}
-#cover button{margin-top:25px;padding:12px 30px;border-radius:40px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:16px;transition:0.3s;position:relative;}
+.nama{font-family:'Playfair Display',serif;font-size:38px;margin:15px 0;text-shadow:0 0 3px var(--gold),0 0 6px var(--gold);line-height:1.3;text-align:center;}
+#cover button{margin-top:25px;padding:14px 35px;border-radius:40px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:18px;transition:0.3s;position:relative;}
 #cover button:hover{background:var(--gold);color:#000;box-shadow:0 0 10px var(--gold);}
 
 /* BISMILLAH */
-h2.arab{font-family:'Amiri',serif;font-size:36px;color:var(--gold);text-align:center;margin-bottom:15px;text-shadow:0 0 3px var(--gold),0 0 6px var(--gold);position:relative;}
+h2.arab{font-family:'Amiri',serif;font-size:38px;color:var(--gold);text-align:center;margin-bottom:15px;text-shadow:0 0 3px var(--gold),0 0 6px var(--gold);position:relative;}
 
 /* PAGE SECTIONS */
 .page{
@@ -34,7 +55,7 @@ h2.arab{font-family:'Amiri',serif;font-size:36px;color:var(--gold);text-align:ce
   transition: opacity 0.6s ease, transform 0.6s ease;
   padding:40px 20px;
   max-width:800px;
-  margin:30px auto;
+  margin:80px auto 30px auto;
   border-radius:20px;
   background:rgba(0,0,0,0.55);
   backdrop-filter:blur(6px);
@@ -56,7 +77,7 @@ h2.arab{font-family:'Amiri',serif;font-size:36px;color:var(--gold);text-align:ce
 .rsvpBtn.hadir{border:1px solid var(--gold);background:transparent;color:var(--gold);}
 .rsvpBtn.tidak{border:1px solid rgba(212,175,55,0.5);background:rgba(212,175,55,0.15);color:#fff;}
 
-/* Glitter / Partikel di atas elemen */
+/* Glitter / Partikel */
 .glitter{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden;}
 .glitter span{position:absolute;display:block;width:3px;height:3px;background:var(--gold);border-radius:50%;opacity:0;animation:glitterAnim 2s infinite;}
 @keyframes glitterAnim{
@@ -72,7 +93,15 @@ h2.arab{font-family:'Amiri',serif;font-size:36px;color:var(--gold);text-align:ce
   <source src="lagu.mp3" type="audio/mpeg">
 </audio>
 
-<div class="overlay">
+<!-- NAVIGATION -->
+<nav>
+  <a href="#profil">Profil</a>
+  <a href="#acara">Acara</a>
+  <a href="#lokasi">Lokasi</a>
+  <a href="#galeri">Galeri</a>
+  <a href="#doa">Doa</a>
+  <a href="#rsvp">RSVP</a>
+</nav>
 
 <!-- COVER -->
 <div id="cover">
@@ -110,10 +139,10 @@ h2.arab{font-family:'Amiri',serif;font-size:36px;color:var(--gold);text-align:ce
 <section id="lokasi" class="page">
   <h2>Lokasi Acara</h2>
   <p>📍 Gedung Serba Guna Sukamaju, Cilawu, Garut</p>
-  <iframe 
-    src="https://www.google.com/maps/embed?pb=!1m18!..." 
-    width="100%" height="250" style="border:0;border-radius:15px;" allowfullscreen="" loading="lazy">
-  </iframe>
+  <a href="https://goo.gl/maps/XXXXXXX" target="_blank" style="
+      display:inline-block;padding:12px 25px;margin-top:10px;
+      background:var(--gold);color:#000;border-radius:25px;text-decoration:none;font-weight:bold;box-shadow:0 0 10px var(--gold);transition:0.3s;
+  ">Lihat di Maps</a>
   <div class="glitter" id="glitterLokasi"></div>
 </section>
 
@@ -143,8 +172,6 @@ h2.arab{font-family:'Amiri',serif;font-size:36px;color:var(--gold);text-align:ce
   <div class="glitter" id="glitterRSVP"></div>
 </section>
 
-</div>
-
 <script>
 // Nama Tamu otomatis
 const params = new URLSearchParams(window.location.search);
@@ -162,7 +189,7 @@ function buka(){
     setTimeout(()=>{
       sec.classList.add('show');
     }, delay);
-    delay += 300; // setiap section muncul 0.3s beda
+    delay += 300;
   });
   document.getElementById('audio').play();
   initGlitter();
@@ -177,7 +204,7 @@ function kirimRSVP(status){
   window.open(url,"_blank");
 }
 
-// Glitter / Partikel di elemen
+// Glitter / Partikel
 function initGlitter(){
   const glitterIds = ['glitterCover','glitterProfil','glitterAcara','glitterLokasi','glitterGaleri','glitterDoa','glitterRSVP'];
   glitterIds.forEach(id=>{
