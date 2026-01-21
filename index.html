@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --gold:#d4af37;
+}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  color:#fff;
+  background:url('bg.jpg') center/cover fixed;
+}
+
+/* OVERLAY BLUR */
+.overlay{
+  backdrop-filter: blur(12px);
+  background: linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.85)
+  );
+  min-height:100vh;
+}
+
+/* GLOW */
+.glow{
+  box-shadow: 0 0 60px rgba(212,175,55,0.25);
+}
+
+/* COVER */
+#cover{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 20px;
+}
+
+#cover h1{
+  font-size:14px;
+  letter-spacing:3px;
+  color:var(--gold);
+}
+
+.nama{
+  font-family:'Playfair Display',serif;
+  font-size:38px;
+  margin:20px 0;
+}
+
+#cover button{
+  margin-top:30px;
+  padding:14px 34px;
+  border-radius:40px;
+  border:1px solid var(--gold);
+  background:transparent;
+  color:var(--gold);
+  font-size:16px;
+}
+
+/* PAGE */
+.page{
+  display:none;
+  padding:80px 20px 110px;
+  animation:fade 0.6s;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* SECTION */
+.section{
+  max-width:520px;
+  margin:auto;
+  padding:35px 25px;
+  border-radius:30px;
+  background:rgba(0,0,0,0.55);
+  backdrop-filter: blur(10px);
+  border:1px solid rgba(212,175,55,0.35);
+  margin-bottom:30px;
+}
+
+.section h2{
+  font-family:'Playfair Display',serif;
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+/* AYAT */
+.ayat{
+  font-style:italic;
+  opacity:0.9;
+}
+
+/* GALERI */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+  gap:14px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:18px;
+  border:1px solid rgba(212,175,55,0.5);
+}
+
+/* NAV */
+#nav{
+  display:none;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:rgba(0,0,0,0.8);
+  backdrop-filter:blur(8px);
+  border-top:1px solid rgba(212,175,55,0.4);
+  display:flex;
+  justify-content:space-around;
+  padding:10px 0;
+}
+
+#nav button{
+  background:none;
+  border:none;
+  color:var(--gold);
+  font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="audio" loop>
+  <source src="lagu.mp3" type="audio/mpeg">
+</audio>
+
+<div class="overlay glow">
+
+<!-- COVER -->
+<div id="cover">
+  <h1>UNDANGAN PERNIKAHAN</h1>
+  <div class="nama">Maharani Azzahra<br>&<br>Aditya Maharaja</div>
+  <p>26 Januari 2026</p>
+  <button onclick="buka()">Buka Undangan</button>
+</div>
+
+<!-- PROFIL -->
+<section id="profil" class="page">
+  <div class="section">
+    <h2>Bismillahirrahmanirrahim</h2>
+    <p>
+      “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu
+      pasangan hidup dari jenismu sendiri agar kamu merasa tenteram kepadanya,
+      dan Dia menjadikan di antaramu rasa kasih dan sayang.”
+    </p>
+    <p class="ayat">(QS. Ar-Rum: 21)</p>
+  </div>
+</section>
+
+<!-- ACARA -->
+<section id="acara" class="page">
+  <div class="section">
+    <h2>Akad & Resepsi</h2>
+    <p>📅 26 Januari 2026<br>⏰ 09.00 WIB – Selesai</p>
+  </div>
+
+  <div class="section">
+    <h2>Kata Cinta</h2>
+    <p>
+      “Cinta bukan tentang saling menatap,
+      tapi tentang memandang ke arah yang sama,
+      berjalan bersama dalam ridho-Nya.”
+    </p>
+  </div>
+</section>
+
+<!-- GALERI -->
+<section id="galeri" class="page">
+  <div class="section">
+    <h2>Galeri Kenangan</h2>
+    <div class="gallery">
+      <img src="foto1.jpg">
+      <img src="foto2.jpg">
+      <img src="foto3.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- DOA -->
+<section id="doa" class="page">
+  <div class="section">
+    <h2>Doa</h2>
+    <p>
+      Semoga Allah SWT menjadikan pernikahan ini
+      sebagai ibadah terpanjang dan
+      keluarga yang sakinah, mawaddah, warahmah.
+    </p>
+  </div>
+</section>
+
+<!-- NAV -->
+<div id="nav">
+  <button onclick="show('profil')">📖<br>Ayat</button>
+  <button onclick="show('acara')">🕰️<br>Acara</button>
+  <button onclick="show('galeri')">🖼️<br>Galeri</button>
+  <button onclick="show('doa')">🤲<br>Doa</button>
+</div>
+
+</div>
+
+<script>
+function buka(){
+  document.getElementById('cover').style.display='none';
+  document.getElementById('nav').style.display='flex';
+  document.getElementById('audio').play();
+  show('profil');
+}
+
+function show(id){
+  document.querySelectorAll('.page').forEach(p=>p.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+</script>
+
+</body>
+</html>
